@@ -15,7 +15,7 @@ void Student::display() {
 }
 
 void Student::saveToFile() {
-	ofstream file("students.txt", ios::app);
+	ofstream file("../students.txt", ios::app);
 	if (file.is_open()) {
 		file << id << " " << name << " " << age << endl;
 		file.close();
@@ -66,7 +66,7 @@ void editStudent() {
 	cout << "Enter the ID of the student to edit: ";
 	cin >> id;
 	cin.ignore();
-	fstream file("students.txt", ios::in | ios::out);
+	fstream file("../students.txt", ios::in | ios::out);
 	if (file.is_open()) {
 		vector<Student> students;
 		int tempId, tempAge;
@@ -88,9 +88,8 @@ void editStudent() {
 		}
 
 		if (found) {
-			// بازنویسی تمامی دانشجویان به فایل
-			file.clear();  // پاک کردن وضعیت EOF
-			file.seekp(0, ios::beg);  // حرکت به ابتدای فایل
+			file.clear();
+			file.seekp(0, ios::beg);
 			for (const auto& student : students) {
 				file << student.id << " " << student.name << " " << student.age << endl;
 			}
@@ -114,27 +113,25 @@ void deleteStudent() {
 
 	cout << "Enter the ID of the student to delete: ";
 	cin >> id;
-	fstream file("students.txt", ios::in | ios::out);
+	fstream file("../students.txt", ios::in | ios::out);
 	if (file.is_open()) {
 		vector<Student> students;
 		int tempId, tempAge;
 		string tempName;
 
-		// خواندن تمام دانشجویان از فایل و ذخیره در آرایه
 		while (file >> tempId >> tempName >> tempAge) {
 			students.push_back(Student(tempId, tempName, tempAge));
 		}
 		for (size_t i = 0; i < students.size(); i++) {
 			if (students[i].id == id) {
-				students.erase(students.begin() + i);  // حذف دانشجو از آرایه
+				students.erase(students.begin() + i);
 				found = true;
 				break;
 			}
 		}
 		if (found) {
-			// بازنویسی تمامی دانشجویان به فایل
-			file.clear();  // پاک کردن وضعیت EOF
-			file.seekp(0, ios::beg);  // حرکت به ابتدای فایل
+			file.clear();
+			file.seekp(0, ios::beg);
 			for (const auto& student : students) {
 				file << student.id << " " << student.name << " " << student.age << endl;
 			}
