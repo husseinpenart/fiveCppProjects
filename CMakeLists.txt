@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(fiveProjects)
-set(SOURCE_FILE main.cpp Student.cpp)
+# crud set cmake items set(SOURCE_FILE main.cpp Student.cpp)
+#todo list
+set(SOURCE_FILE TaskSource.cpp  Task.cpp)
 add_executable(hello ${SOURCE_FILE})
 
