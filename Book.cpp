@@ -11,7 +11,7 @@ void Book::display() {
 }
 
 void Book::saveToFile() {
-	ofstream file("../books.txt", ios::app);
+	ofstream file("../books.csv", ios::app);
 	if (file.is_open()) {
 		file << id << " " << title << " " << author << endl;
 		file.close();
@@ -38,7 +38,7 @@ void addBook() {
 }
 
 void showBooks() {
-	ifstream file("../books.txt");
+	ifstream file("../books.csv");
 	int id;
 	string title, author;
 
@@ -54,7 +54,7 @@ void showBooks() {
 	}
 }
 void searchBook() {
-	ifstream file("../books.txt");
+	ifstream file("../books.csv");
 	int id, searchId;
 	string title, author;
 	bool found = false;
@@ -84,8 +84,8 @@ void searchBook() {
 
 
 void deleteBook() {
-	ifstream file("../books.txt");
-	ofstream tempFile("../temp.txt"); // فایل موقت برای ذخیره کتاب‌های غیر حذف‌شده
+	ifstream file("../books.csv");
+	ofstream tempFile("../temp.csv"); // فایل موقت برای ذخیره کتاب‌های غیر حذف‌شده
 
 	int id, deleteId;
 	string title, author;
@@ -108,8 +108,8 @@ void deleteBook() {
 		tempFile.close();
 
 		if (found) {
-			remove("../books.txt");           // حذف فایل اصلی
-			rename("../temp.txt", "../books.txt"); // تغییر نام فایل موقت
+			remove("../books.csv");           // حذف فایل اصلی
+			rename("../temp.csv", "../books.csv"); // تغییر نام فایل موقت
 		}
 		else {
 			cout << "Book not found!" << endl;
@@ -122,8 +122,8 @@ void deleteBook() {
 
 
 void editBook() {
-	ifstream file("../books.txt");
-	ofstream tempFile("../temp.txt");
+	ifstream file("../books.csv");
+	ofstream tempFile("../temp.csv");
 
 	int id, editId;
 	string title, author;
@@ -152,8 +152,8 @@ void editBook() {
 		tempFile.close();
 
 		if (found) {
-			remove("../books.txt");
-			rename("../temp.txt", "../books.txt");
+			remove("../books.csv");
+			rename("../temp.csv", "../books.csv");
 		}
 		else {
 			cout << "Book not found!" << endl;
