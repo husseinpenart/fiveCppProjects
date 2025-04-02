@@ -320,8 +320,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\PinkFloyd\source\repos\fiveProjects\TaskSource.cpp" />
-    <ClCompile Include="C:\Users\PinkFloyd\source\repos\fiveProjects\Task.cpp" />
+    <ClCompile Include="C:\Users\PinkFloyd\source\repos\fiveProjects\main.cpp" />
+    <ClCompile Include="C:\Users\PinkFloyd\source\repos\fiveProjects\Book.cpp" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
