@@ -104,10 +104,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Program Files\boost\boost_1_87_0;C:\mongo-cxx-driver-install\include\bsoncxx\v_noabi;C:\mongo-cxx-driver-install\include\mongocxx\v_noabi;C:\mongo-c-driver-install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>mongocxx.lib;bsoncxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files\boost\boost_1_87_0;C:\mongo-cxx-driver-install\include\mongocxx\v_noabi;C:\mongo-c-driver-install\include;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -118,20 +121,30 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Program Files\boost\boost_1_87_0;C:\mongo-cxx-driver-install\include\bsoncxx\v_noabi;C:\mongo-cxx-driver-install\include\mongocxx\v_noabi;C:\mongo-c-driver-install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>mongocxx.lib;bsoncxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files\boost\boost_1_87_0;C:\mongo-cxx-driver-install\include\mongocxx\v_noabi;C:\mongo-c-driver-install\include;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Book.h" />
     <ClInclude Include="Student.h" />
+    <ClInclude Include="Task.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AddStudents.cpp" />
+    <ClCompile Include="Book.cpp" />
+    <ClCompile Include="BookManagement.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Student.cpp" />
+    <ClCompile Include="Task.cpp" />
+    <ClCompile Include="TaskSource.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
